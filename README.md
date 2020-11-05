@@ -1,24 +1,7 @@
-# vuejs-tensorflow
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## 项目札记
+1. Vue也使用了虚拟DOM，但是用稍微不同的方式来实现它，主要是Vue只重新渲染发生改变的组件，而React在默认情况下也会重新渲染子组件。
+2. 与React不同，Vue没有提供一个显式的render函数来处理HTML和状态的渲染。相反，其渲染更接近Angular模型，即将模板解析为可以呈现的内容。
+3. TensorFlow在底层使用`WebGLTextures`，但是在Windows平台创建WebGLTextures存在一个问题，因此需要禁用该功能。
+4. 卷积神经网络（CNN）将图像分解为小部分（假设分解为3×3的像素网格），并比较这些小部分。简单来讲，它会在这些小部分之间寻找匹配，然后确定匹配的数量。匹配数越大，对两幅图像相匹配的信心度就越高。
+5. `MobileNet`是一种专用CNN，提供了多种功能，其中就包括图像分类。其图像分类功能**已经用ImageNet数据库（http://www.image-net.org/）中的图像进行了训练**。当我们加载模型时，是在加载一个预训练的模型。
+6. DOM更新是异步发生的。当一个值改变时，发生的变化不会立即渲染。相反，Vue会请求一次DOM更新，而实际的更新是由一个定时器触发的。因此，通过使用Vue的`nextTick`函数，我们等待下一次DOM更新来执行相关的操作。

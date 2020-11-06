@@ -20,7 +20,7 @@ export class ImageClassifier {
         }
 
         if (this.model) {
-            const result = this.model.classify(image);
+            const result = await this.model.classify(image);
             return {
                 ... result,
             };
